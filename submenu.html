@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>드롭다운메뉴 css로 만들기</title>
+        <style>
+            *{margin:0;padding:0;}
+            a{text-decoration: none; color: inherit;}
+            ul{list-style: none;}
+
+            .gnb{
+                background-color: mediumblue;
+                display: flex;
+                justify-content: center;
+                height: 50px;
+            }
+            .gnb>li{
+                width: 120px;
+                text-align: center;
+            }
+            .gnb>li>a{
+                line-height: 50px;
+                color: #fff;
+                display: block;
+            }
+
+
+            .gnb>li:hover>a{
+                background-color:darkblue
+            }
+
+
+            .sub{
+                background-color: lightblue;
+                line-height: 32px;
+                height: 0px;
+                overflow: hidden;
+                transition: all 1s;
+            }
+            /* sub메뉴(하단메뉴)만들때 
+            display:none->block으로 할 경우에는
+            transition 효과가 들어가지 않는다!!!!
+
+            gnb의 li에게 마우스를 올리면
+            해당 sub의 height값을 살려준다
+            */
+
+    .gnb>li:nth-child(1):hover .sub{
+        height: 165px;
+    }
+
+    .gnb>li:nth-child(2):hover .sub{
+        height: 99px;
+    }
+
+    .gnb>li:nth-child(3):hover .sub{
+        height: 132px;
+    }
+
+    .gnb>li:nth-child(4):hover .sub{
+        height: 66px;
+    }
+
+            .sub li{
+                border-bottom: 1px solid steelblue;
+            }
+
+            .sub li:hover{
+                background-color: rgba(0,0,0,0.1);
+            }
+
+            .sub li:last-child{
+                border-bottom: 0;
+            }
+
+            header{
+                height: 140px;
+                border-bottom: 2px solid #b5121b;
+                margin-bottom: 200px;
+            }
+
+            header h1{
+                font-size: 36px;
+                text-align: center;
+                padding-top: 25px;
+            }
+
+            .main{
+                display: flex;
+                width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 12px;
+            }
+
+            .main li{
+                width: 16.66%;
+                text-align: center;
+                padding:10px 0;
+                font-weight: bold;
+                color:#333;
+            }
+
+
+            .main li span{
+                font-weight: normal;
+                display: block;
+                font-size: 12px;
+                color:#666;
+                opacity: 0;
+                transition: opacity 0.8s;
+            }
+
+            /* .main:hover span */
+            nav:hover span{
+                opacity: 1;
+            }
+
+            .main li:hover{
+                background-color:#b5121b;
+                color: #fff;
+            }
+            .main li:hover span{
+                color:#fff;
+            }
+
+            nav{
+                position: relative;
+            }
+            .submenu{
+                background-color:#2f2f2f;
+                color: #666;
+                position: absolute;
+                top:57px;
+                left:0;
+                width: 100%;
+                height: 0;
+                transition: all 1s;
+                overflow: hidden;
+            }
+
+            nav:hover .submenu{
+                height: 194px;
+            }
+
+
+            .submenu li:hover{
+                color: #fff;
+            }
+
+            .subWrap{
+                width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                padding:20px 0;
+            }
+
+            .subWrap div{
+                font-size: 14px;
+                width: 16.66%;
+                text-align: center;
+
+            }
+
+            .subWrap li{
+                margin-bottom: 4px;
+            }
+
+            .subWrap .hide{
+                text-indent: -9999px;
+                height: 0;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <header>
+              <h1>HOLLYS COFFEE</h1>
+
+              <nav>
+                  <ul class="main">
+                      <li><a href="#">Menu <span>메뉴</span></a></li>
+                      <li><a href="#">HOLLYS Mall <span>할리스 몰</span></a></li>
+                      <li><a href="#">Membership <span>멤버십</span></a></li>
+                      <li><a href="#">HOLLYS News <span>이벤트 및 공지</span></a></li>
+                      <li><a href="#">Store <span>매장</span></a></li>
+                      <li><a href="#">HOLLYS is<span>할리스소개</span></a></li>
+                  </ul><!--main-->
+
+                  <div class="submenu">
+                     <div class="subWrap">
+                        <div class="menu1">
+                            <h3 class="hide">Menu</h3>
+                            <ul>
+                                <li><a href="#">COFFEE</a></li>
+                                <li><a href="#">라떼·초콜릿·티</a></li>
+                                <li><a href="#">할리치노·빙수</a></li>
+                                <li><a href="#">스파클링</a></li>
+                                <li><a href="#">푸드</a></li>
+                                <li><a href="#">MD상품</a></li>
+                                <li><a href="#">MD식품</a></li>
+                            </ul>
+                        </div><!--menu1-->
+
+                        <div class="menu2">
+                            <h3 class="hide">할리스몰</h3>
+                            <ul>
+                                <li><a href="#">할리스콘</a></li>
+                                <li><a href="#">할리스카드</a></li>
+                                <li><a href="#">구매내역</a></li>
+                            </ul>
+                        </div><!--menu2-->
+
+                        <div class="menu3">
+                            <h3 class="hide">멤버십</h3>
+                            <ul>
+                                <li><a href="#">스마트오더</a></li>
+                                <li><a href="#">멤버십 혜택</a></li>
+                            </ul>
+                        </div><!--menu3-->
+
+                        <div class="menu4">
+                            <h3 class="hide">이벤트 및 공지</h3>
+                            <ul>
+                                <li><a href="#">Notice</a></li>
+                                <li><a href="#">Event</a></li>
+                            </ul>
+                        </div><!--menu4-->
+
+                        <div class="menu5">
+                            <h3 class="hide">매장</h3>
+                            <ul>
+                                <li><a href="#">매장검색</a></li>
+                            </ul>
+                        </div><!--menu5-->
+
+                        <div class="menu6">
+                            <h3 class="hide">할리스 소개</h3>
+                            <ul>
+                                <li><a href="#">HOLLYS</a></li>
+                                <li><a href="#">할리스 위치 및 연락처</a></li>
+                                <li><a href="#">채용 안내</a></li>
+                                <li><a href="#">가맹문의 및 절차</a></li>
+                                <li><a href="#">B2B 사업 소개</a></li>
+                            </ul>
+                        </div><!--menu6-->
+                     </div><!--subWrap-->
+                  </div><!--submenu-->
+              </nav>
+        </header>
+
+
+
+        <ul class="gnb">
+            <li><a href="#">MENU1</a>
+                <ul class="sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub2</a></li>
+                    <li><a href="#">sub3</a></li>
+                    <li><a href="#">sub4</a></li>
+                    <li><a href="#">sub5</a></li>
+                </ul><!--첫번째sub-->
+            </li><!--첫번째li-->
+
+            <li><a href="#">MENU2</a>
+                <ul class="sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub2</a></li>
+                    <li><a href="#">sub3</a></li>
+                </ul><!--두번째sub-->
+            </li><!--두번째li-->
+
+            <li><a href="#">Menu3</a>
+                <ul class="sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub2</a></li>
+                    <li><a href="#">sub3</a></li>
+                    <li><a href="#">sub4</a></li>
+                </ul><!--세번째sub-->
+            </li><!--세번째li-->
+
+            <li><a href="#">Menu4</a>
+                <ul class="sub">
+                    <li><a href="#">sub1</a></li>
+                    <li><a href="#">sub2</a></li>
+                </ul><!--sub-->
+            </li><!--네번째li-->
+        </ul>
+    </body>
+</html>
